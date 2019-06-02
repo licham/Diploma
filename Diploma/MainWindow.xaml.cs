@@ -46,7 +46,7 @@ namespace Diploma
         private void WireframeChecked(object sender, RoutedEventArgs e)
         {
             var viewport = (Content as Grid).Children[0] as HelixViewport3D;
-            viewport.Children.Add(WireframeGenerator.GenerateWireframe(PointProcessor.Points));
+            viewport.Children.Add(WireframeGenerator.GenerateWireframe(PointReader.Points));
         }
 
         private void WireframeUnchecked(object sender, RoutedEventArgs e)

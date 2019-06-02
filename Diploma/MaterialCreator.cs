@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelixToolkit.Wpf;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
@@ -17,11 +18,9 @@ namespace Diploma
             await Task.Run(() =>
             {
                 var image = new BitmapImage(new Uri(fileName));
-                Material = new DiffuseMaterial(new ImageBrush(new CroppedBitmap(image, CROP_RECT)));
-                Material.Freeze();
+                var textureMaterial = new DiffuseMaterial(new ImageBrush(new CroppedBitmap(image, CROP_RECT)));
+                Material = MaterialHelper.CreateMaterial(new ImageBrush(new CroppedBitmap(image, CROP_RECT)), 1000, 255, true);
                 return Material;
-                //ModelMaterial = MaterialHelper.CreateEmissiveImageMaterial(fileName, BrushHelper.CreateGrayBrush(1), UriKind.Absolute);
-                //return MaterialHelper.CreateEmissiveImageMaterial(fileName, BrushHelper.CreateGrayBrush(1), UriKind.Absolute);
             });
     }
 }

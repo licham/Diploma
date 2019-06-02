@@ -15,6 +15,7 @@ namespace Diploma
                 var meshBuilder = new MeshBuilder(false, true);
                 var points = PointReader.ReadPoints(fileName);
                 points = PointProcessor.ProcessPoints(points);
+                points = BSplineSurfaceBuilder.BuildSurface(points, 5, new Size(100, 100));
                 var width = points.GetLength(0);
                 var heigth = points.GetLength(1);
                 for (var y = 0; y < heigth; y++)
